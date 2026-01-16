@@ -15,10 +15,7 @@ state([
             <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 {{ $message }}
             </h1>
-
-            <p class="text-lg text-gray-700 dark:text-gray-300">
-                Live Visits Today: <span class="font-bold text-blue-600">{{ $visits }}</span>
-            </p>
+             <livewire:add-site/>
             <div class="mt-8">
                 <livewire:charts.visits-chart />
             </div>
