@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TrackingController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewMetricRecorded;
 use App\Models\Metric;
 use App\Models\Site;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class TrackingController extends Controller
             'session_duration' => 0, // can be improved later
             'visits' => 1,
         ]);
-
+        event(new \App\Events\NewMetricRecorded($site->id));
+        \Log::info('Broadcasting NewMetricRecorded for site ' . $site->id);
         return response()->json(['status' => 'tracked']);
     }
 }

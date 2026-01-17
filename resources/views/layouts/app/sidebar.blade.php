@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @include('partials.head')
+        @livewireStyles
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
@@ -90,7 +92,9 @@
         </flux:header>
 
         {{ $slot }}
-
+        @vite(['resources/js/app.js'])
+        @livewireScripts
         @fluxScripts
+
     </body>
 </html>
